@@ -33,13 +33,13 @@ public final class AccessToForeignData implements IMetricCalculator {
 		org.eclipse.emf.ecore.EClass in = (org.eclipse.emf.ecore.EClass) context.get(0);
 		
 		Set<EClass> classesReferenciadas = new HashSet<EClass>();
-		for (EReference eReference : in.getEAllReferences()) {
+		for (EReference eReference : in.getEReferences()) {
 			if (eReference.getEType() != null && eReference.getEType() instanceof EClass) {
 				classesReferenciadas.add((EClass)eReference.getEType());
 			}
 		}
 		
-		for (EOperation eOperation : in.getEAllOperations()) {
+		for (EOperation eOperation : in.getEOperations()) {
 			for (EParameter eParameter : eOperation.getEParameters()) {
 				if (eParameter.getEType() != null && eParameter.getEType() instanceof EClass) {
 					classesReferenciadas.add((EClass) eParameter.getEType());
