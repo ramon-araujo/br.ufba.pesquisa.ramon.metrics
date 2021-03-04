@@ -32,7 +32,7 @@ public final class CohesionAmongMethods implements IMetricCalculator {
 		double numberOfDistinctParameterTypeOfEachMethod = 0;
 		
 		Set<EClass> tiposDeParametros = new HashSet<EClass>();
-		for (EOperation eOperation : in.getEAllOperations()) {
+		for (EOperation eOperation : in.getEOperations()) {
 			Set<EClass> tiposDeParametrosDoMetodo = new HashSet<EClass>();
 			for (EParameter eParameter : eOperation.getEParameters()) {
 				if (eParameter.getEType() != null && eParameter.getEType() instanceof EClass) {
@@ -43,7 +43,7 @@ public final class CohesionAmongMethods implements IMetricCalculator {
 			numberOfDistinctParameterTypeOfEachMethod += tiposDeParametrosDoMetodo.size();
 		}
 		double numberOfDistinctParameterTypes = tiposDeParametros.size();
-		double numberOfMethods = in.getEAllOperations().size();
+		double numberOfMethods = in.getEOperations().size();
 		
 		if (numberOfDistinctParameterTypeOfEachMethod != 0 && numberOfMethods != 0) {
 			return numberOfDistinctParameterTypeOfEachMethod / (numberOfMethods * numberOfDistinctParameterTypes);

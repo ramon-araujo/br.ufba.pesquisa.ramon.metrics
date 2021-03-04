@@ -2,7 +2,6 @@ package org.eclipse.emf.refactor.metrics;
 
 import java.util.List;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.refactor.metrics.interfaces.IMetricCalculator;
@@ -23,7 +22,7 @@ public final class WMCParam implements IMetricCalculator {
 		org.eclipse.emf.ecore.EClass in = (org.eclipse.emf.ecore.EClass) context.get(0);
 		double ret = 0.0;
 		
-		for (EOperation operacao : in.getEAllOperations()) {
+		for (EOperation operacao : in.getEOperations()) {
 			if (!Util.isMetodoAcesso(operacao)) {
 				ret+=calcularWMCMetodo(operacao);
 			}

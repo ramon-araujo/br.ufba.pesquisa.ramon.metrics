@@ -17,9 +17,9 @@ public final class NumberOfAccessMethods implements IMetricCalculator {
 	public double calculate() {	
 		org.eclipse.emf.ecore.EClass in = (org.eclipse.emf.ecore.EClass) context.get(0);
 		System.out.println("------" + in.getName() + "------");
-		System.out.println(in.getEAllAttributes());
-		System.out.println(in.getEAllReferences());
+		System.out.println(in.getEAttributes());
+		System.out.println(in.getEReferences());
 		System.out.println("------------");
-		return in.getEAllAttributes().size() + in.getEAllReferences().size();
+		return in.getEAttributes().size() + in.getEReferences().size();
 	}
 }

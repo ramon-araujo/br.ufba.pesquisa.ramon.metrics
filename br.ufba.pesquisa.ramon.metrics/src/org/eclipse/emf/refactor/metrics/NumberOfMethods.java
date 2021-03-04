@@ -16,6 +16,6 @@ public final class NumberOfMethods implements IMetricCalculator {
 	@Override
 	public double calculate() {	
 		org.eclipse.emf.ecore.EClass in = (org.eclipse.emf.ecore.EClass) context.get(0);
-		return in.getEAllOperations().size();
+		return in.getEOperations().size();
 	}
 }

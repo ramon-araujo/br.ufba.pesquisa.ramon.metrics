@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -25,7 +24,7 @@ public final class ChangingClasses implements IMetricCalculator {
 		
 		Set<EClass> classesClientesReferenciadas = new HashSet<EClass>();
 		
-		for (EReference referencia : in.getEAllReferences()) {
+		for (EReference referencia : in.getEReferences()) {
 			if (referencia.getEType() instanceof EClass) {
 				classesClientesReferenciadas.add((EClass)referencia.getEType());
 			}
